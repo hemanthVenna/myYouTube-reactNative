@@ -30,9 +30,9 @@ export default class App extends Component<Props> {
       <Provider store={createStoreWithMiddleware(reducers)}>
         <Router>
           <Scene key="root">
-            <Scene key='pageOne' component={Search} title='pageOne' initial={true} ></Scene>
-            <Scene key='pageTwo' component={VideoList} title='pageTwo'></Scene>
-            <Scene key='pageThree' component={VideoItem} title="pageThree"></Scene>
+            <Scene key='pageOne' component={Search} title='Search' initial={true} ></Scene>
+            <Scene key='pageTwo' component={VideoList} title='Related Videos'></Scene>
+            <Scene key='pageThree' component={VideoItem} title="Video Details"></Scene>
           </Scene>
         </Router>
       </Provider>

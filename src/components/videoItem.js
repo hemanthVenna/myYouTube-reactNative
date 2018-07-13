@@ -5,7 +5,7 @@ import {
   Text,
   View,
   TouchableWithoutFeedback,
-  Button
+  Button,WebView
 } from 'react-native';
 import Video from 'react-native-video';
 import {connect} from 'react-redux';
@@ -20,10 +20,12 @@ class VideoItem extends Component{
         const url = `https://www.youtube.com/watch?v=${videoId}`;
         console.log(url)
         return (
-            <View>
-            <Video source={{uri:url}} ref={(ref) => {this.player = ref}}  resizeMode="cover" />
-            </View>
-        )
+            <WebView
+              source={{uri: url}}
+              style={{marginTop: 20}}
+            />
+          );
+      
         
     }
 }

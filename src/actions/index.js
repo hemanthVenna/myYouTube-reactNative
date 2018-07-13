@@ -11,9 +11,11 @@ export function setSearchText(data){
     }
 }
 
-export function videosList(){
+export function videosList(searchedVideo){
+    console.log("searchedVideo")
+    console.log(searchedVideo)
     return dispatch => {
-        YTSearch({key : API_KEY, term : "I don't know "}, (videos) => {
+        YTSearch({key : API_KEY, term : searchedVideo}, (videos) => {
             dispatch ({
                 type:"VideosList",
                 payload: videos

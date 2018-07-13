@@ -3,7 +3,8 @@ const rootReducers = (state="",action) => {
         
         case 'searchText' :
     console.log("reducers identify1",action.type)
-        
+        console.log("settseat");
+        console.log(action.payload)
             return action.payload;
         // case 'VideosList' :
         //     return action.payload;

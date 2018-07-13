@@ -15,21 +15,34 @@ import { bindActionCreators } from 'redux';
 import {setSearchText,videosList} from '../actions'
 
 class Search extends Component{
+    inputChangeHandler (text){
+        console.log("input text")
+        console.log(text)
+        this.props.setSearchText(text)
+        console.log(this.props.searchText)
+    }
+    onSearchVideo(){
+        const {searchText} = this.props;
+        this.props.videosList(searchText);
+    }
     render(){
         return (
             <View>
-                <TextInput onChange={(text) => this.props.textHandler(text) }  value={ this.props.searchText }/>
-                <Button onPress={ () => this.props.videoHandler()} title="Go To Videos"></Button>
+                <TextInput onChangeText={this.inputChangeHandler.bind(this) }  value={ this.props.searchText }/>
+                <Button onPress={this.onSearchVideo.bind(this) } title="Go To Videos"></Button>
             </View>
         )
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return {
-        textHandler: (text) => dispatch(setSearchText(text)),
-        videoHandler: () => dispatch(videosList())
-    }
+// function mapDispatchToProps(dispatch){
+//     return {
+//         textHandler: (text) => dispatch(setSearchText(text)),
+//         videoHandler: () => dispatch(videosList())
+//     }
+// }
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({setSearchText,videosList},dispatch)
 }
 const mapStateToProps = (state) => {
     return {searchText:state.item}
