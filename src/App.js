@@ -11,13 +11,14 @@ import {
   Text,
   View
 } from 'react-native';
-import { Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Scene } from 'react-native-router-flux';
 
 import Search from './components/search';
 import VideoList from './components/videoList';
-import VideoItem from './components/videoItem'
+import VideoItem from './components/videoItem';
+import Menu from './components/Menu'
 import reducers from './reducers';
 import reduxThunk from 'redux-thunk'
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);

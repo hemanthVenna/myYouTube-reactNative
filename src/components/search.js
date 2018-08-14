@@ -12,7 +12,8 @@ import {
 import { Actions } from 'react-native-router-flux';
 import {connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import {setSearchText,videosList} from '../actions'
+import {setSearchText,videosList} from '../actions';
+import Menu from './Menu'
 
 class Search extends Component{
     inputChangeHandler (text){

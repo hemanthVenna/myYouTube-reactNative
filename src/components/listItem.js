@@ -17,17 +17,18 @@ import {selectedVideo} from '../actions'
 
 class ListItem extends Component{
     render(){
-        const {itemStyle,textStyle,imgWrapStyle,descriptionWrap} = styles;
+        const {itemStyle,textStyle,imgWrapStyle,descriptionWrap,imgStyle} = styles;
         const icon = this.props.videoItem.snippet.thumbnails.default.url;
         console.log('slected video2')
+        console.log(icon)
         console.log(this.props.videoItem.id.videoId)
         return (
-            <View >
+            <View>
                <TouchableWithoutFeedback onPress={()=>this.props.selectVideo(this.props.videoItem.id.videoId)}>
                <View style={itemStyle}>
                 <View style={imgWrapStyle}>
                 
-                    <Image source={icon} />
+                    <Image source={{uri:icon}} style={imgStyle}/>
                 </View>
                 <View style={descriptionWrap}>
                     <Text style={textStyle}>{this.props.videoItem.snippet.title}</Text>
@@ -44,20 +45,28 @@ const styles = {
     itemStyle:{
         flex:1,
         display:'flex',
-        flexDirection :'row'
+        flexDirection :'row',
+        margin:5,
+        marginBottom:3,
+        borderRadius: 4,
+        borderColor :"#ccc",
+        borderWidth:0.5
     },
     textStyle:{
         color:"#000",
         lineHeight: 24,
-        fontSize:20
+        fontSize:16
     },
     imgWrapStyle:{
-        flex:1,
-        width:150,
+        flex:1.5,
         height:100
     },
     descriptionWrap:{
         flex:2,
+    },
+    imgStyle:{
+        width:150,
+        height:100
     }
 }
 

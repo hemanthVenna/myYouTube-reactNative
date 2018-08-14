@@ -7,7 +7,8 @@ import {
   TouchableWithoutFeedback,
   Button,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  Keyboard
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
@@ -23,6 +24,7 @@ class VideoList extends Component{
     };
 
     componentWillMount(){
+        Keyboard.dismiss()
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.dataSource = ds.cloneWithRows(this.props.videoList)
         console.log("video row")
