@@ -7,7 +7,8 @@ import {
   TouchableWithoutFeedback,
   Button,
   TextInput,
-  Image
+  Image,
+  Linking
 
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
@@ -16,15 +17,15 @@ import { bindActionCreators } from 'redux';
 import {selectedVideo} from '../actions'
 
 class ListItem extends Component{
+    openAppInVideo(videoUrl) {
+        Linking.openURL('vnd.youtube://'+ videoUrl);
+    }
     render(){
         const {itemStyle,textStyle,imgWrapStyle,descriptionWrap,imgStyle} = styles;
         const icon = this.props.videoItem.snippet.thumbnails.default.url;
-        console.log('slected video2')
-        console.log(icon)
-        console.log(this.props.videoItem.id.videoId)
         return (
             <View>
-               <TouchableWithoutFeedback onPress={()=>this.props.selectVideo(this.props.videoItem.id.videoId)}>
+               <TouchableWithoutFeedback onPress={()=>this.openAppInVideo(this.props.videoItem.id.videoId)}>
                <View style={itemStyle}>
                 <View style={imgWrapStyle}>
                 

@@ -27,8 +27,6 @@ class VideoList extends Component{
         Keyboard.dismiss()
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.dataSource = ds.cloneWithRows(this.props.videoList)
-        console.log("video row")
-        console.log(this.props.videoList)
     }
     
     // alertItemName = (item) => {
@@ -39,7 +37,6 @@ class VideoList extends Component{
      }
     render(){
         if(!this.props.videoList){
-            console.log("loading... videos")
             return <Text>Loading...</Text>
         }
         return (

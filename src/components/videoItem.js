@@ -13,20 +13,14 @@ import {bindActionCreators} from 'redux'
 
 class VideoItem extends Component{
     render(){
-        console.log("videoIttem")
-    console.log(this.props.reqVideo)
-        
         const videoId = this.props.reqVideo;
         const url = `https://www.youtube.com/watch?v=${videoId}`;
-        console.log(url)
         return (
             <WebView
               source={{uri: url}}
               style={{marginTop: 20}}
             />
-          );
-      
-        
+        );
     }
 }
 // function mapDispatchToProps(dispatch){
